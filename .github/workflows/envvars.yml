@@ -16,6 +16,9 @@ jobs:
         env:
           API_URL: ${{vars.API_URL}}
           APP_MODE: ${{vars.APP_MODE}}
+          DB_PASS: ${{secrets.DB_PASSWORD}}
         run: |
-          echo "API_URL: $API_URL"
+          echo "Deploying to $API_URL"
           echo "APP_MODE: $APP_MODE"
+          echo "DB Password length is ${#DB_PASS}"
+          echo "DB Password is ${DB_PASS}"
