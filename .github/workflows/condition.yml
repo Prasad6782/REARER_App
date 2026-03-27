@@ -1,16 +1,13 @@
-name: condition Demo
+name: Condition Demo
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        required: true
+        default: dev
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-      - name: Step 1
-        run: echo "Hello"
-
-      - name: step 2
-        if: failure()
-        run: echo "Runs only if Step 1 failled"
+    if: github.event.inputs.environment == 'prod'
