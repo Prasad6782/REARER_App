@@ -11,7 +11,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0    # full history so gitleaks can scan all commits
+          fetch-depth: 1    # full history so gitleaks can scan all commits
 
       - name: Run Gitleaks
         id: gitleaks
